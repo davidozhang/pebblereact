@@ -19,6 +19,8 @@ var response = new UI.Card({
     subtitle: 'Click select now!'
 });
 
+var result = new UI.Card({});
+
 main.show();
 
 main.on('click', 'select', function(e) {
@@ -35,13 +37,11 @@ main.on('click', 'select', function(e) {
             var postResponseTime = d2.getTime();
             var difference = postResponseTime - preResponseTime;
             
-            var result = new UI.Card({
-                title: 'Results',
-                subtitle: 'Your response time is: ' + difference + 'ms'
-            });
+            result.title('Results');
+            result.subtitle('Your response time is: ' + difference + 'ms');
             response.hide();
             result.show();
-            
+
             result.on('click', 'select', function(e) {
                 result.hide();
                 main.show(); 
